@@ -1,0 +1,46 @@
+<section>
+    <table class="information_profile">
+        <tr class="profile_output profile_edit">
+            <td>Full name:</td>
+            <td><input type="text" ng-model="seeker.name"></td>
+        </tr>
+        <tr class="profile_output ">
+            <td>Email:</td>
+            <td><input type="text" ng-model="seeker.email"></td>
+        </tr>
+        <tr class="profile_output ">
+            <td>Phone number:</td>
+            <td><input type="text" ng-model="seeker.phone_Number"></td>
+        </tr>
+        <tr class="profile_output">
+            <td>Birthday:</td>
+            <td><input type="date" ng-model="seeker.birthday"></td>
+        </tr>
+        <tr class="profile_output ">
+            <td>Address:</td>
+            <td><input type="text" ng-model="seeker.address"></td>
+        </tr>
+        <tr class="profile_output ">
+            <td>Education:</td>
+            <td><input type="text" ng-model="seeker.education"></td>
+        </tr>
+        <tr class="profile_output ">
+            <td>Major:</td>
+            <td><input type="text" ng-model="seeker.major"></td>
+        </tr>
+        <tr class="profile_output ">
+            <td>Experience:</td>
+            <td><textarea ng-model="seeker.experience" id="experienceEditor" ckeditor></textarea></td>
+        </tr>
+        <tr class="profile_output ">
+            <td>Skills:</td>
+            <td><textarea ng-model="seeker.skills" id="skillsEditor" ckeditor></textarea></td>
+        </tr>
+    </table>
+    <div class="header-btn change_profile_custom profile_button_center ">
+        <a href="" class="btn custom_btn"
+            ng-click="EditProfile(seeker.name, seeker.email, seeker.phone_Number, seeker.birthday, seeker.address, seeker.education, seeker.major)">
+            Save
+        </a>
+    </div>
+</section>

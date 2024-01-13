@@ -1,0 +1,28 @@
+<section>
+    <div class="row">
+        <table class="col-xl-8 col-lg-8 col-md-8 information_profile">
+            <tr class="profile_output">
+                <td class="col-3">Full name:</td>
+                <td>{{account.name}}</td>
+            </tr>
+            <tr class="profile_output">
+                <td class="col-3">Address:</td>
+                <td>{{account.address}}</td>
+            </tr>
+            <tr class="profile_output">
+                <td class="col-3">Birthday:</td>
+                <td>{{account.birthday}}</td>
+            </tr>
+            <tr class="profile_output">
+                <td class="col-3">Phone number:</td>
+                <td>{{account.phoneNumber}}</td>
+            </tr>
+        </table>
+        <div class="col-xl-4 col-lg-4 col-md-4 custom_button_Profile">
+            <div class="text-center">
+                <img ng-src="{{account.photo}}" alt="" class="image_infor">
+            </div>
+            <div class="custom_profile_email">{{account.email}}</div>
+        </div>
+    </div>
+</section>

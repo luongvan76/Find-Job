@@ -1,0 +1,49 @@
+<section class="ftco-section col-xl-12 col-lg-12 col-md-12">
+	<div class="row justify-content-center">
+		<div class="col-md-6 col-lg-6 custom_profile">
+			<div class="login-wrap p-0">
+				<h3 class="mb-4 mt-10 text-center">Have an account?</h3>
+				<div class="row justify-content-center">
+					<form action="#" class="signin-form col-md-8 col-lg-8">
+						<div class="input-group ">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fa fa-solid fa-envelope"></i></span>
+							</div>
+							<input type="email" name="email" class="form-control" placeholder="Email" aria-label="email"
+								value="" ng-model = "email">
+						</div>
+						<br>
+						<div class="input-group ">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fa fa-solid fa-lock"></i></span>
+							</div>
+							<input type="password" class="form-control password-field" placeholder="password"
+								aria-label="password" value="" ng-model = "password">
+							<div class="input-group-prepend">
+								<span toggle="#password-field" class="input-group-text" toggle-password-visibility><i
+										class="fa fa-eye-slash click-eye field-icon"></i></span>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="row justify-content-center mt-30">
+					<div class="header-btn">
+						<a href="" class="btn head-btn1" ng-click = "login(email, password)">Login</a>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-md-5 col-lg-5 text-center mt-20 mb-20" ng-click="loginWithGoogle()">
+						<a href="" class="google_login pt-10 pb-10 pl-10 pr-10">
+							<img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+							Login with Google
+						</a>
+					</div>
+				</div>
+				<div class="row f-right mt-10 mr-30">
+					<a href="" class="a_forgot_create">Forgot password</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

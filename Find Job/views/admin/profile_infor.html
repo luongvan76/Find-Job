@@ -1,0 +1,15 @@
+<section class="col-xl-10 col-lg-10 col-md-10 popup">
+    <div class="col-xl-10 col-lg-10 col-md-10 custom_profile">
+        <ul class="menu">
+            <li><a href="" ng-click="admin.showProfileSeeker()">Seeker</a></li>
+            <li><a href="" ng-click="admin.showProfileEmployer()">Employer</a></li>
+        </ul>
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                    <show-profile-seeker ng-if="admin.showSeeker"></show-profile-seeker>
+                    <show-profile-employer ng-if="admin.showEmployer"></show-profile-employer>
+                    <button class="profile_button_center" ng-click="admin.InforProfile()">Close</button>
+            </div>
+        </div>
+    </div>
+</section>

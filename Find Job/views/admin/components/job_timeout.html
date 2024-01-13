@@ -1,0 +1,56 @@
+<section>
+    <main class="app-content">
+        <div class="app-title">
+            <ul class="app-breadcrumb breadcrumb side">
+                <li class="breadcrumb-item active">
+                    <a href="#"><b>Job Timeout List</b></a>
+                </li>
+            </ul>
+            <clock style="color: #1f2b7b; font-weight: bold;""></clock>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile">
+                    <div class="tile-body">
+                        <div class="search">
+                            <input type="text" class="search-box" placeholder="Please enter search keyword..." ng-model="searchJob"/>
+                            <a class="btn btn-search btn-sm" type="button" title="search">
+                                <i class="fas fa-search"></i> Search
+                            </a>
+                        </div>
+
+                        <table class="table table-hover table-borderless js-copytextarea mt-20" cellpadding="0" cellspacing="0"
+                            border="0" id="sampleTable">
+                            <thead>
+                                <tr>
+                                    <th class="bg-danger">ID</th>
+                                    <th class="col-md-4 bg-danger" >Title</th>
+                                    <th class="bg-danger">Location</th>
+                                    <th class="bg-danger">Minimum salary</th>
+                                    <th class="bg-danger">Maximum salary</th>
+                                    <th class="bg-danger"></th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="job in jobs | filter: searchJob" ng-class-odd="'odd-class'" ng-class-even="'even-class'">
+                                <tr>
+                                    <td><a href="" ng-click="admin.InforPostJob(); getJobDetail(job.id)"">{{job.id}}</a></td>
+                                    <td>{{job.jobTitle}}</td>
+                                    <td>{{job.location}}</td>
+                                    <td>{{job.minimum_Salary | currencyFormat}} VNĐ</td>
+                                    <td>{{job.maximum_Salary | currencyFormat}} VNĐ</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            ng-click="deleteJob(job.id)">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <show-post-job ng-if="admin.showPostJob"></show-post-job>
+    </main>
+</section>

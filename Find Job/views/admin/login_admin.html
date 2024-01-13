@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <title>FIND JOB | Admin Login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="assets/styles/util.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="assets/styles/login_admin.css" />
+  <link rel="stylesheet" href="assets/styles/fontawesome-all.min.css" />
+</head>
+<body>
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <div class="login100-pic js-tilt" data-tilt>
+          <img src="assets/img/login_admin/team.jpg" alt="IMG" />
+        </div>
+        <form class="login100-form validate-form">
+          <span class="login100-form-title">
+            <b>ADMIN OF FINDJOB</b>
+          </span>
+          <form action="">
+            <div class="wrap-input100 validate-input">
+              <input class="input100" type="text" placeholder="Email" name="username" id="username" ng-model="email" />
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-user"></i>
+              </span>
+            </div>
+            <div class="wrap-input100 validate-input">
+              <input autocomplete="off" class="input100" type="password" placeholder="Password" name="current-password"
+                class="password-field" ng-model="password" />
+              <span toggle="#password-field" class="fa fa-eye-slash field-icon click-eye" toggle-password-visibility></span>
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-key"></i>
+              </span>
+            </div>
+            <div class="container-login100-form-btn">
+              <input type="button" value="Login" id="submit" ng-click="login(email, password)" />
+            </div>
+          </form>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

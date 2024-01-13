@@ -1,0 +1,89 @@
+<section>
+    <main class="app-content">
+        <div class="app-title">
+            <ul class="app-breadcrumb breadcrumb side">
+                <li class="breadcrumb-item active">
+                    <a href="#"><b>Type and Industry</b></a>
+                </li>
+            </ul>
+            <clock style="color: #1f2b7b; font-weight: bold;""></clock>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="tile">
+                    <div class="tile-body">
+                        <div class="search">
+                            <input type="text" class="search-box" placeholder="Please enter search keyword..." ng-model="searchType"/>
+                            <a class="btn btn-search btn-sm" type="button" title="search">
+                                <i class="fas fa-search"></i> Search
+                            </a>
+                        </div>
+                        <div class="search mt-20">
+                            <input type="text" class="enter-box" placeholder="Enter Type" ng-model="type_name"/>
+                            <a class="btn btn-search btn-sm" type="button" title="search" ng-click="createType(type_name)">
+                                <i class="fas fa-plus"></i> Create
+                            </a>
+                        </div>
+                        <table class="table table-hover table-borderless js-copytextarea mt-20" cellpadding="0" cellspacing="0"
+                            border="0" id="sampleTable">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-10 bg-danger">Type</th>
+                                    <th class="bg-danger"></th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="type in types | filter: searchType" ng-class-odd="'odd-class'" ng-class-even="'even-class'">
+                                <tr>
+                                    <td>{{type.type_name}}</td>
+                                    <td class="table-td-center">
+                                        <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"  ng-click="deleteType(type.type_id)">
+                                            <i class="fas fa-close"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="tile">
+                    <div class="tile-body">
+                        <div class="search">
+                            <input type="text" class="search-box" placeholder="Please enter search keyword..." ng-model="searchIndustry"/>
+                            <a class="btn btn-search btn-sm" type="button" title="search">
+                                <i class="fas fa-search"></i> Search
+                            </a>
+                        </div>
+                        <div class="search mt-20">
+                            <input type="text" class="enter-box" placeholder="Enter Industry" ng-model="industry"/>
+                            <a class="btn btn-search btn-sm" type="button" title="search" ng-click="createIndustry(industry)">
+                                <i class="fas fa-plus"></i> Create
+                            </a>
+                        </div>
+                        <table class="table table-hover table-borderless js-copytextarea mt-20" cellpadding="0" cellspacing="0"
+                            border="0" id="sampleTable">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-10 bg-danger">Industry</th>
+                                    <th class="bg-danger"></th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="industry in industries | filter: searchIndustry" ng-class-odd="'odd-class'" ng-class-even="'even-class'">
+                                <tr>
+                                    <td>{{industry.industry}}</td>
+                                    <td class="table-td-center">
+                                        <button class="btn btn-primary btn-sm trash" type="button"
+                                            ng-click="deleteIndustry(industry.industry_id)">
+                                            <i class="fas fa-close"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</section>

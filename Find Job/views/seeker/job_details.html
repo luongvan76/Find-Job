@@ -1,0 +1,177 @@
+<section>
+  <!-- Hero Area Start-->
+  <div class="slider-area">
+    <div class="single-slider section-overly slider-height2 d-flex align-items-center"
+      data-background="assets/img/hero/about.jpg" databg>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="hero-cap text-center">
+              <h2>{{job.employer_name}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Hero Area End -->
+  <!-- job post company Start -->
+  <div class="job-post-company custom_job_detail">
+    <div class="container">
+      <div class="row justify-content-between">
+        <!-- Left Content -->
+        <div class="col-xl-8 col-lg-8">
+          <!-- job single -->
+          <div class="single-job-items mb-50">
+            <div class="job-items">
+              <div class="company-img company-img-details">
+                <img ng-src="{{job.logo}}" alt="" />
+              </div>
+              <div class="job-tittle">
+                <h4>{{job.jobTitle}}</h4>
+                <ul>
+                  <li><i class="fas fa-map-marker-alt"></i>{{job.location}}</li>
+                  <li>{{job.minimum_salary | currencyFormat}} VNĐ - {{job.maximum_salary | currencyFormat}} VNĐ</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- job single End -->
+
+          <div class="job-post-details">
+            <div class="post-details1 mb-50">
+              <!-- Small Section Tittle -->
+              <div class="small-section-tittle">
+                <h3>Job Description</h3>
+              </div>
+              <div ng-bind-html="job.jobDescription"></div>
+            </div>
+            <div class="post-details2 mb-50">
+              <!-- Small Section Tittle -->
+              <div class="small-section-tittle">
+                <h3>Required + Education + Experience </h3>
+              </div>
+              <div ng-bind-html="job.requirement"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Right Content -->
+        <div class="col-xl-4 col-lg-4">
+          <div class="post-details3 mb-50">
+            <!-- Small Section Tittle -->
+            <div class="small-section-tittle">
+              <h4>Job Overview</h4>
+            </div>
+            <ul>
+              <li>Posted date : <span>{{job.posted_date}}</span></li>
+              <li>Location : <span>{{job.location}}</span></li>
+              <li>Job Type : <span>{{job.type.type_name}}</span></li>
+              <li>Up to : <span>{{job.maximum_salary | currencyFormat}} VNĐ</span></li>
+              <li>Deadline : <span>{{job.deadline}}</span></li>
+              <li>Industry : <span>{{job.industry.industry_name}}</span></li>
+            </ul>
+            <div class="apply-btn2">
+              <a href="" class="btn" ng-click="apply()" ng-if="header.isUserLoggedIn">Apply Now</a>
+            </div>
+          </div>
+          <div class="post-details4 mb-50">
+            <!-- Small Section Tittle -->
+            <div class="small-section-tittle">
+              <h4>Company Information</h4>
+            </div>
+            <span>{{job.employer_name}}</span>
+            <ul>
+              <li>Web : <a class="link" href="{{job.website}}" target="_blank">{{job.website}}</a></li>
+              <li>Email: <span>{{job.email}}</span></li>
+              <li>Contact: <span>{{job.contact}}</span></li>
+              <li>Address: <span>{{job.address}}</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- job post company End -->
+  <div class="row justify-content-center">
+    <div class="col-10 f-left">
+      <div class="mb-50 mt-50 custom_apply pt-50 pb-50" ng-if="!header.isUserLoggedIn">
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <div class="row edit_job_input">
+              <div class="col-xl-3 col-lg-3 col-md-3 edit_header f-left">
+                Full name:
+              </div>
+              <input type="text" class="col-xl-8 col-lg-8 col-md-8 edit_input" ng-model="name" />
+            </div>
+            <div class="row edit_job_input">
+              <div class="col-xl-3 col-lg-3 col-md-3 edit_header f-left">
+                Email:
+              </div>
+              <input type="email" placeholder="user@gmail.com" class="col-xl-8 col-lg-8 col-md-8 edit_input" ng-model="email" />
+            </div>
+            <div class="row edit_job_input">
+              <div class="col-xl-3 col-lg-3 col-md-3 edit_header f-left">
+                Phone:
+              </div>
+              <input type="text" value="" class="col-xl-8 col-lg-8 col-md-8 edit_input" ng-model="phone" />
+            </div>
+            <div class="row edit_job_input">
+              <div class="col-xl-3 col-lg-3 col-md-3 edit_header f-left">
+                Birthday:
+              </div>
+              <input type="date" value="" class="col-xl-8 col-lg-8 col-md-8 edit_input" ng-model="birthday" />
+            </div>
+
+          </div>
+          <div class="col-6">
+            <div class="row edit_job_input">
+              <div class="col-xl-3 col-lg-3 col-md-3 edit_header f-left">
+                Address:
+              </div>
+              <input type="text" value="" class="col-xl-8 col-lg-8 col-md-8 edit_input" ng-model="address" />
+            </div>
+            <div class="row edit_job_input">
+              <div class="col-xl-3 col-lg-3 col-md-3 edit_header f-left">
+                Major:
+              </div>
+              <input type="text" value="" class="col-xl-8 col-lg-8 col-md-8 edit_input" ng-model="major" />
+            </div>
+            <div class="row edit_job_input">
+              <div class="col-xl-3 col-lg-3 col-md-3 edit_header f-left">
+                Education:
+              </div>
+              <input type="text" value="" class="col-xl-8 col-lg-8 col-md-8 edit_input" ng-model="education" />
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <!-- Phần Skills -->
+            <div class="row  edit_job_input">
+              <div class="col-xl-3 col-lg-3 col-md-3 edit_header">
+                Skills:
+              </div>
+              <textarea class="col-xl-8 col-lg-8 col-md-8" id="skillsEditor" ckeditor></textarea>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <!-- Phần Experience -->
+            <div class="row  edit_job_input">
+              <div class="col-xl-3 col-lg-3 col-md-3 edit_header">
+                Experience:
+              </div>
+              <textarea class="col-xl-8 col-lg-8 col-md-8" id="experienceEditor" ckeditor></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="header-btn">
+            <a href="" class="btn head-btn1"
+              ng-click="applyjob(name, email, phone, birthday, address, major, education)">Apply</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>

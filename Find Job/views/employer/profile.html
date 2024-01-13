@@ -1,0 +1,59 @@
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 custom_profile">
+                <div class="custom_profile_header" ng-click="uploadImageCover()">
+                    <img ng-src="{{employer.image_cover}}" alt="image cover"
+                        class="col-xl-10 col-lg-10 col-md-10 cover_company">
+                </div>
+                <div class="row justify-content-center">
+                    <div class="text-center box_logo">
+                        <img ng-src="{{employer.employer_image}}" alt="employer image" class="logo_company">
+                    </div>
+                    <input type="file" id="MainImage" style="display: none;" accept="image/*">
+                    <input type="file" id="ImageCover" style="display: none;" accept="image/*">
+                    <div class="text-center camera">
+                        <button type="button" class="round-button" ng-click="uploadImage()">
+                            <span><i class="fa fa-camera" aria-hidden="true"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="text-center mt-30" ng-if="employer.employer_name">
+                    <h1>{{employer.employer_name}}</h1>
+                </div>
+                <hr>
+                <div class="row justify-content-center pb-30">
+                    <div class="col-xl-5 col-lg-5 col-md-5 d-flex" ng-if="employer.email">
+                        <div class="edit_header col-xl-2">Email: </div>
+                        <a href="" class="col-xl-10 link">{{employer.email}}</a>
+                    </div>
+                    <div class="col-xl-5 col-lg-5 col-md-5 d-flex" ng-if="employer.contact_phone">
+                        <div class="edit_header col-xl-2">Contact: </div>
+                        <a href="" class="col-xl-10 link">{{employer.contact_phone}}</a>
+                    </div>
+                </div>
+                <div class="row justify-content-center pb-30">
+                    <div class="col-xl-5 col-lg-5 col-md-5 d-flex" ng-if="employer.employer_website">
+                        <div class="edit_header col-xl-2">Website: </div>
+                        <a href="" class="col-xl-10 link">{{employer.employer_website}}</a>
+                    </div>
+                    <div class="col-xl-5 col-lg-5 col-md-5 d-flex" ng-if="employer.employer_address">
+                        <div class="edit_header col-xl-2">Address: </div>
+                        <a href="" class="col-xl-10 link">{{employer.employer_address}}</a>
+                    </div>
+                </div>
+                <div class="row justify-content-center" ng-if="employer.employer_about">
+                    <div class="col-xl-10 custom_profile mb-50">
+                        <h3 class="text-center mt-20 mb-20">About Us</h3>
+                        <div class="col-lg-12 mb-30 justify-content-center" ng-bind-html="employer.employer_about">
+                        </div>    
+                    </div>
+                </div>                
+            </div>
+            <div class="header-btn d-none f-right d-lg-block mb-30">
+                <a href="" class="btn custom_btn" ng-click="employerService.showEditProfile()">Edit profile</a>
+            </div>
+        </div>
+        <edit-profile ng-if="employerService.editProfile"></edit-profile>
+    </div>
+</section>

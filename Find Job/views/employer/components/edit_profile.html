@@ -1,0 +1,42 @@
+<section class=" col-xl-13 col-lg-12 col-md-12 popup">
+    <div class="row justify-content-center">
+        <div class="col-xl-8 col-lg-8 col-md-8 custom_profile">
+            <div class="row f-right mb-30 mr-10">
+                <span class="icon_delete" ng-click="employerService.showEditProfile()"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 mt-80">
+                <div class="row  edit_job_input">
+                    <div class="col-xl-3 col-lg-3 col-md-3 edit_header">Name: </div>
+                    <input type="text" class="col-xl-8 col-lg-8 col-md-8 edit_input" ng-model="employer.employer_name">
+                </div>
+                <div class="row  edit_job_input">
+                    <div class="col-xl-3 col-lg-3 col-md-3 edit_header">Email: </div>
+                    <input type="email" class="col-xl-8 col-lg-8 col-md-8 edit_input" ng-model="employer.email">
+                </div>
+                <div class="row  edit_job_input">
+                    <div class="col-xl-3 col-lg-3 col-md-3 edit_header">Contact :</div>
+                    <input type="text" class="col-xl-8 col-lg-8 col-md-8 edit_input" ng-model="employer.contact_phone">
+                </div>
+                <div class="row  edit_job_input">
+                    <div class="col-xl-3 col-lg-3 col-md-3 edit_header">Website: </div>
+                    <input type="text" class="col-xl-8 col-lg-8 col-md-8 edit_input" ng-model="employer.employer_website">
+                </div>
+                <div class="row  edit_job_input">
+                    <div class="col-xl-3 col-lg-3 col-md-3 edit_header">Address: </div>
+                    <input type="text" class="col-xl-8 col-lg-8 col-md-8 edit_input" ng-model="employer.employer_address">
+                </div>
+                <div class="row  edit_job_input">
+                    <div class="col-xl-3 col-lg-3 col-md-3 edit_header">About us: </div>
+                    <textarea class="col-xl-6 col-lg-6 col-md-6 edit_input" id="aboutEmployer" ckeditor ng-model="employer.employer_about"></textarea>
+                </div>
+                <div class="row justify-content-center mb-30">
+                    <div class="header-btn edit_job_button">
+                        <a href="" class="btn custom_btn" ng-click="updateEmployerProfile(employer.employer_name, employer.email, employer.contact_phone, employer.employer_website, employer.employer_address)">Save</a>
+                    </div>  
+                </div>
+            </div>
+    
+        </div>
+    
+    </div>
+</section>

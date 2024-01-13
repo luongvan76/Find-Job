@@ -1,0 +1,53 @@
+<section class="col-xl-12 col-lg-12 col-md-12 custom_edit_job">
+    <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6">
+            <infor-employer ng-if="employer.inforEmployer"></infor-employer>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6">
+            <div class="row justify-content-center edit_job_input">
+                <div class="col-xl-3 col-lg-3 col-md-3 edit_header">Job Tittle: </div>
+                <input type="text" class="col-xl-9 col-lg-9 col-md-9 edit_input" ng-model="job.jobTitle">
+            </div>
+            <div class="row justify-content-center edit_job_input">
+                <div class="col-xl-3 col-lg-3 col-md-3 edit_header">Location: </div>
+                <select name="" class="col-xl-9 col-lg-9 col-md-9 edit_input" ng-model="selectedLocation">
+                    <option ng-repeat="location in locations">{{location.name}}</option>
+                </select>
+            </div>
+            <div class="row justify-content-center edit_job_input">
+                <div class="col-xl-3 col-lg-3 col-md-3  edit_header">Minimum salary: </div>
+                <input type="number" value="" class="col-xl-3 col-lg-3 col-md-3 edit_input"
+                    ng-model="job.minimum_salary">
+                <div class="col-xl-3 col-lg-3 col-md-3 edit_header">Maximum salary: </div>
+                <input type="number" class="col-xl-3 col-lg-3 col-md-3 edit_input" ng-model="job.maximum_salary">
+            </div>
+            <div class="row justify-content-center edit_job_input">
+                <div class="col-xl-3 col-lg-3 col-md-3 edit_header">Job type: </div>
+                <select name="" class="col-xl-9 col-lg-9 col-md-9 edit_input" ng-options="type.type_name for type in types track by type.type_id" ng-model="job.type">
+                </select>
+            </div>
+            <div class="row justify-content-center edit_job_input">
+                <div class="col-xl-3 col-lg-3 col-md-3 edit_header">Industry: </div>
+                <select name="" class="col-xl-9 col-lg-9 col-md-9 edit_input" ng-options="industry.industry for industry in industries track by industry.industry_id" ng-model="job.industry">
+                </select>
+            </div>
+            <div class="row justify-content-center edit_job_input">
+                <div class="col-xl-3 col-lg-3 col-md-3 edit_header">Deadline: </div>
+                <input type="date" class="col-xl-9 col-lg-9 col-md-9 edit_input" ng-model="deadline">
+            </div>
+            <div class="row justify-content-center edit_job_input">
+                <div class="col-xl-3 col-lg-3 col-md-3 edit_header">Description: </div>
+                <textarea id="descriptionE" ckeditor ng-model="job.jobDescription"></textarea>
+            </div>
+            <div class="row justify-content-center edit_job_input">
+                <div class="col-xl-3 col-lg-3 col-md-3 edit_header">Requirement: </div>
+                <textarea id="requirementE" ckeditor ng-model="job.requirement"></textarea>
+            </div>
+            <div class="row justify-content-center">
+                <div class="header-btn edit_job_button">
+                    <a href="" class="btn custom_btn" ng-click="editJob(job.jobTitle, job.minimum_salary, job.maximum_salary, selectedLocation, job.industry, job.type, deadline)">Save</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

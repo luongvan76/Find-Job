@@ -1,0 +1,40 @@
+<section>
+    <table class="information_profile">
+        <tr class="profile_output">
+            <td>Full name:</td>
+            <td>{{seeker.name}}</td>
+        </tr>
+        <tr class="profile_output">
+            <td>Email:</td>
+            <td>{{seeker.email}}</td>
+        </tr>
+        <tr class="profile_output">
+            <td>Phone Number:</td>
+            <td>{{seeker.phone_Number}}</td>
+        </tr>
+        <tr class="profile_output">
+            <td>Birth day:</td>
+            <td>{{seeker.birthday}}</td>
+        </tr>
+        <tr class="profile_output">
+            <td>Address:</td>
+            <td>{{seeker.address}}</td>
+        </tr>
+        <tr class="profile_output">
+            <td>Education:</td>
+            <td>{{seeker.education}}</td>
+        </tr>
+        <tr class="profile_output">
+            <td>Major:</td>
+            <td>{{seeker.major}}</td>
+        </tr>
+        <tr class="profile_output">
+            <td>Experience:</td>
+            <td><div ng-bind-html="seeker.experience"></div></td>
+        </tr>
+        <tr class="profile_output">
+            <td>Skills:</td>
+            <td><div ng-bind-html="seeker.skills"></div></td>
+        </tr>
+    </table>
+</section>

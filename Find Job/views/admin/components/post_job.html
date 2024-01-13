@@ -1,0 +1,70 @@
+<section class="col-xl-10 col-lg-10 col-md-10 popup">
+    <div class="col-xl-10 col-lg-10 col-md-10 custom_profile">
+        <div class="single-job-items mb-30">
+            <div class="job-items">
+                <div>
+                    <img ng-src="{{jobDetail.logo}}" alt="" class="logo_company">
+                </div>
+                <div class="job-tittle job-tittle2">
+                    <a href="">
+                        <h4 title="{{jobDetail.jobTitle}}">{{jobDetail.jobTitle | truncate: 30: '...'}}</h4>
+                    </a>
+                    <ul>
+                        <li>{{jobDetail.industry.industry_name}}</li>
+                        <li>{{jobDetail.minimum_salary | currencyFormat}} VNĐ - {{jobDetail.maximum_salary |
+                            currencyFormat}} VNĐ</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="items-link items-link2 f-right">
+                <a href="">{{jobDetail.type.type_name}}</a>
+                <span>{{jobDetail.deadline}}</span>
+            </div>
+        </div>
+        <div class="job-post-details">
+            <div class="post-details1 mb-50 pl-30 pr-30">
+                <!-- Small Section Tittle -->
+                <div class="small-section-tittle">
+                    <h4>Job Description</h4>
+                </div>
+                <div ng-bind-html="jobDetail.jobDescription"></div>
+            </div>
+            <div class="post-details1 mb-50 pl-30 pr-30">
+                <!-- Small Section Tittle -->
+                <div class="small-section-tittle">
+                    <h4>Requirement + Education + Experience</h4>
+                </div>
+                <div ng-bind-html="jobDetail.requirement"></div>
+            </div>
+            <div class="row">
+                <div class="col-xl-5 col-lg-5 col-md-5 post-details3 mb-50 ml-30">
+                    <!-- Small Section Tittle -->
+                    <div class="small-section-tittle">
+                        <h4>Job Overview</h4>
+                    </div>
+                    <ul>
+                        <li>Posted date : <span>{{jobDetail.posted_date}}</span></li>
+                        <li>Location : <span>{{jobDetail.location}}</span></li>
+                        <li>Job type : <span>{{jobDetail.type.type_name}}</span></li>
+                        <li>Up to : <span>{{jobDetail.maximum_salary | currencyFormat}} VNĐ</span></li>
+                        <li>Deadline : <span>{{jobDetail.deadline}}</span></li>
+                        <li>Industry : <span>{{jobDetail.industry.industry_name}}</span></li>
+                    </ul>
+                </div>
+                <div class=" col-xl-6 col-lg-6 col-md-6 post-details4 mb-50 ml-30">
+                    <!-- Small Section Tittle -->
+                    <div class="small-section-tittle">
+                        <h4>Company Information</h4>
+                    </div>
+                    <span>{{jobDetail.employer_name}}</span>
+                    <ul>
+                        <li>Web : <a href="{{jobDetail.website}}" class="link_website"
+                                target="_blank">{{jobDetail.website}}</a></li>
+                        <li>Email: <span>{{jobDetail.email}}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <button class="profile_button_center" ng-click="admin.InforPostJob()">Close</button>
+    </div>
+</section>

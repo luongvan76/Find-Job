@@ -1,0 +1,111 @@
+<section>
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <main class="col-xl-10 col-lg-10 col-md-10 app-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="app-title">
+            <ul class="app-breadcrumb breadcrumb">
+              <li class="breadcrumb-item">
+                <b>Dashboard</b>
+              </li>
+            </ul>
+            <clock style="color: #1f2b7b; font-weight: bold;""></clock>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!--Left-->
+        <div class="col-md-12 col-lg-6">
+          <div class="row">
+            <!-- col-6 -->
+            <div class="col-md-6">
+              <div class="widget-small primary coloured-icon">
+                <i class="icon bx bxs-user-account fa-3x"></i>
+                <div class="info">
+                  <h4>Total Account</h4>
+                  <p><b>{{quantityAccount}}</b></p>
+                  <p class="info-tong">Total number of accounts managed.</p>
+                </div>
+              </div>
+            </div>
+            <!-- col-6 -->
+            <div class="col-md-6">
+              <div class="widget-small info coloured-icon">
+                <i class="icon bx bxs-data fa-3x"></i>
+                <div class="info">
+                  <h4>Total Post</h4>
+                  <p><b>{{quantityJob}}</b></p>
+                  <p class="info-tong">Total number of job postings.</p>
+                </div>
+              </div>
+            </div>
+            <!-- col-12 -->
+            <div class="col-md-12"></div>
+            <!-- / col-12 -->
+            <!-- col-12 -->
+            <div class="col-md-12">
+              <div class="tile">
+                <h3 class="tile-title">Latest account</h3>
+                <div>
+                  <table class="table table-hover table-borderless">
+                    <thead>
+                      <tr>
+                        <th class="bg-danger">ID</th>
+                        <th class="bg-danger">Email</th>
+                        <th class="bg-danger">Name</th>
+                      </tr>
+                    </thead>
+                    <tbody ng-repeat="account in accounts" ng-class-odd="'odd-class'" ng-class-even="'even-class'">
+                      <tr>
+                        <td><a href="" ng-click="admin.InforProfile(); getAccount(account.uid); getEmployer(account.uid);" ng-model="account.uid">{{shortenUid(account.uid)}}</a></td>
+                        <td>{{account.email}}</td>
+                        <td><span class="tag tag-success">{{account.name}}</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!-- / col-12 -->
+          </div>
+        </div>
+        <!--END left-->
+        <!--Right-->
+        <div class="col-md-12 col-lg-6">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="tile">
+                <h3 class="tile-title">Latest recruitment post</h3>
+                <div class="tile-body">
+                  <table class="table table-borderless table-hover">
+                    <thead>
+                      <tr>
+                        <th class="bg-danger">ID</th>
+                        <th class="bg-danger">Employer Name</th>
+                        <th class="bg-danger">Job title</th>
+                        <th class="bg-danger">Posted date</th>
+                        <th class="bg-danger">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody ng-repeat="job in jobs" ng-class-odd="'odd-class'" ng-class-even="'even-class'">
+                      <tr>
+                        <td><a href="" ng-click="admin.InforPostJob(); getJobDetail(job.id)" ng-model="job.id">{{job.id}}</a></td>
+                        <td>{{job.employer_name}}</td>
+                        <td>{{job.title}}</td>
+                        <td>{{job.posted_date}}</td>
+                        <td><span ng-class="{'badge bg-success': job.status === 'Approved', 'badge bg-info': job.status === 'Waiting'}">{{job.status}}</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- / div trống-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <profile-infor ng-if="admin.showProfile"></profile-infor>
+        <show-post-job ng-if="admin.showPostJob"></show-post-job>
+        <!--END right-->
+      </div>
+    </main>  
+</section>

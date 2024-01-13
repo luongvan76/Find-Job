@@ -1,0 +1,114 @@
+<section
+  class="col-xl-12 col-lg-12 col-md-12 popup"
+  ng-app="MyApp"
+  ng-controller="JobDetailController"
+>
+  <div class="row justify-content-center">
+    <div
+      class="col-xl-7 col-lg-7 col-md-7 mb-50 mt-50 pt-50 pb-50 custom_apply"
+    >
+      <div class="row justify-content-center edit_job_input">
+        <div class="col-xl-2 col-lg-2 col-md-2 edit_header f-left">
+          Full name:
+        </div>
+        <input
+          type="text"
+          class="col-xl-9 col-lg-9 col-md-9 edit_input"
+          ng-model="name"
+        />
+      </div>
+      <div class="row justify-content-center edit_job_input">
+        <div class="col-xl-2 col-lg-2 col-md-2 edit_header f-left">Email:</div>
+        <input
+          type="email"
+          class="col-xl-9 col-lg-9 col-md-9 edit_input"
+          ng-model="email"
+        />
+      </div>
+      <div class="row justify-content-center edit_job_input">
+        <div class="col-xl-2 col-lg-2 col-md-2 edit_header f-left">Phone:</div>
+        <input
+          type="text"
+          value=""
+          class="col-xl-9 col-lg-9 col-md-9 edit_input"
+          ng-model="phone"
+        />
+      </div>
+      <div class="row justify-content-center edit_job_input">
+        <div class="col-xl-2 col-lg-2 col-md-2 edit_header f-left">
+          Birthday:
+        </div>
+        <input
+          type="date"
+          value=""
+          class="col-xl-9 col-lg-9 col-md-9 edit_input"
+          ng-model="birthday"
+        />
+      </div>
+      <div class="row justify-content-center edit_job_input">
+        <div class="col-xl-2 col-lg-2 col-md-2 edit_header f-left">
+          Address:
+        </div>
+        <input
+          type="text"
+          value=""
+          class="col-xl-9 col-lg-9 col-md-9 edit_input"
+          ng-model="address"
+        />
+      </div>
+      <div class="row justify-content-center edit_job_input">
+        <div class="col-xl-2 col-lg-2 col-md-2 edit_header f-left">Major:</div>
+        <input
+          type="text"
+          value=""
+          class="col-xl-9 col-lg-9 col-md-9 edit_input"
+          ng-model="major"
+        />
+      </div>
+      <div class="row justify-content-center edit_job_input">
+        <div class="col-xl-2 col-lg-2 col-md-2 edit_header f-left">
+          Experience:
+        </div>
+        <input
+          type="string"
+          value=""
+          class="col-xl-9 col-lg-9 col-md-9 edit_input"
+          ng-model="experience"
+        />
+      </div>
+      <div class="row justify-content-center edit_job_input">
+        <div class="col-xl-2 col-lg-2 col-md-2 edit_header f-left">
+          Education:
+        </div>
+        <input
+          type="text"
+          value=""
+          class="col-xl-9 col-lg-9 col-md-9 edit_input"
+          ng-model="education"
+        />
+      </div>
+      <div class="row justify-content-center edit_job_input">
+        <div class="col-xl-2 col-lg-2 col-md-2 edit_header f-left">Skills:</div>
+        <input
+          type="text"
+          value=""
+          class="col-xl-9 col-lg-9 col-md-9 edit_input"
+          ng-model="skills"
+        />
+      </div>
+      <div class="row justify-content-center">
+        <div class="header-btn">
+          <a
+            href=""
+            class="btn head-btn1"
+            ng-click="applyjob(name, email, phone, birthday, address, major, experience, education, skills)"
+            >Apply</a
+          >
+        </div>
+      </div>
+      <span class="turn_arrow" ng-click="apply.showApply()"
+        ><i class="fas fa-arrow-left"></i
+      ></span>
+    </div>
+  </div>
+</section>

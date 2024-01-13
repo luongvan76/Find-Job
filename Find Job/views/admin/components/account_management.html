@@ -1,0 +1,54 @@
+<section>
+    <main class="app-content">
+        <div class="app-title">
+            <ul class="app-breadcrumb breadcrumb side">
+                <li class="breadcrumb-item active">
+                    <a href="#"><b>Account List</b></a>
+                </li>
+            </ul>
+            <clock style="color: #1f2b7b; font-weight: bold;""></clock>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile">
+                    <div class="tile-body">
+                        <div class="search">
+                            <input type="text" class="search-box" placeholder="Please enter search keyword..." ng-model="searchAccount" />
+                            <a class="btn btn-search btn-sm" type="button" title="search">
+                                <i class="fas fa-search"></i> Search
+                            </a>
+                        </div>
+
+                        <table class="table table-borderless table-hover js-copytextarea mt-20" cellpadding="0" cellspacing="0"
+                            border="0" id="sampleTable">
+                            <thead>
+                                <tr>
+                                    <th class="bg-danger">Account ID</th>
+                                    <th class="col-md-4 bg-danger">Email</th>
+                                    <th class="col-md-4 bg-danger">Name</th>
+                                    <th class="bg-danger">Date_create</th>
+                                    <th class="bg-danger"></th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="account in accounts | filter: searchAccount" ng-class-odd="'odd-class'" ng-class-even="'even-class'">
+                                <tr>
+                                    <td><a href="" ng-click="admin.InforProfile(); getAccount(account.uid); getEmployer(account.uid);" ng-model="account.uid">{{shortenUid(account.uid)}}</a></td>
+                                    <td>{{account.email}}</td>
+                                    <td>{{account.name}}</td>
+                                    <td>{{account.dateCreate}}</td>
+                                    <td class="table-td-center">
+                                        <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"  ng-click="deleteAccount(account.uid)">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <profile-infor ng-if="admin.showProfile"></profile-infor>
+    </main>
+</section>

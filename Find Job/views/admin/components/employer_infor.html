@@ -1,0 +1,22 @@
+<section class = "scroll">
+    <div class="col-xl-12 col-lg-12 col-md-12">
+        <div class="col-xl-12 col-lg-12 col-md-12 company-img">
+            <img ng-src="{{employer.image_cover}}" alt="">
+        </div>
+        <h1 class="col-xl-12 col-lg-12 name_employer">{{employer.employer_name}}</h1>
+        <table class="col-xl-12 col-lg-12 col-md-12 information_profile">
+            <tr class="profile_output">
+                <td>Address:</td>
+                <td>{{employer.employer_address}}</td>
+            </tr>
+            <tr class="profile_output">
+                <td>Phone number:</td>
+                <td>{{employer.contact_phone}}</td>
+            </tr>
+            <tr class="profile_output">
+                <td>Website:</td>
+                <td><a href="{{employer.employer_website}}" target="_blank" class="link_website">{{employer.employer_website}}</a></td>
+            </tr>
+        </table>
+    </div>
+</section>

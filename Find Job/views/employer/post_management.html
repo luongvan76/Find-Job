@@ -1,0 +1,14 @@
+<section class="col-xl-12 col-md-12 col-lg-12">
+    <div class="row">
+        <div class="col-xl-8 col-md-8 col-lg-8 mx-auto post_choose">
+            <ul class="menu">
+                <li ng-click="employer.ShowAllPosts()">All posts</li>
+                <li ng-click="employer.ShowApprovedPost()">Approved post</li>
+                <li ng-click="employer.ShowWaitingPost()">Waiting post</li>
+            </ul>
+        </div>
+    </div>
+    <all-posts ng-if="employer.AllPosts"></all-posts>
+    <approved-post ng-if="employer.ApprovedPost"></approved-post>
+    <waiting-post ng-if="employer.WaitingPost"></waiting-post>
+</section>

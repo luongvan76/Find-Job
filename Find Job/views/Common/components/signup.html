@@ -1,0 +1,35 @@
+<section class="ftco-section col-xl-12 col-lg-12 col-md-12 pt-50 pb-50 custom_profile">
+    <h3 class="text-center">Sign up</h3>
+    <div class="input-group ">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-solid fa-envelope"></i></span>
+        </div>
+        <input type="email" name="email" class="form-control" placeholder="Email" aria-label="email" value="">
+    </div>
+    <br>
+    <div class="input-group ">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-solid fa-lock"></i></span>
+        </div>
+        <input type="password" id="pass" class="form-control" placeholder="password" aria-label="password" value="">
+        <div class="input-group-prepend">
+            <span class="input-group-text" onclick="myfunction()"><i class="fa fa-eye-slash click-eye"></i></span>
+        </div>
+    </div>
+    <br>
+    <div class="input-group ">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-solid fa-lock"></i></span>
+        </div>
+        <input type="password" id="pass2" class="form-control" placeholder="Repeat password" aria-label="password"
+            value="">
+        <div class="input-group-prepend">
+            <span class="input-group-text " onclick="myfunction2()"><i class="fa fa-eye-slash click-eye2"></i></span>
+        </div>
+    </div>
+    <div class="header-btn change_profile_custom profile_button_center">
+        <a href="" class="btn custom_btn mr-10" ng-click="signupService.showSeekerSignup()">Seeker <i
+                class="fas fa-arrow-right"></i></a>
+        <a href="" class="btn custom_btn" ng-click="signupService.showEmployerSignup()">Employer <i class="fas fa-arrow-right"></i></a>
+    </div>
+</section>

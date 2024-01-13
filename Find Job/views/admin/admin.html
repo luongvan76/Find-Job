@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="assets/styles/admin.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+  <!-- Font-icon css-->
+  <link rel="stylesheet" type="text/css"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" />
+
+</head>
+
+<body class="app sidebar-mini rtl" >
+  <aside class="col-xl-2 col-lg-2 col-md-2 app-sidebar">
+    <div class="app-sidebar__user">
+      <img class="app-sidebar__user-avatar" src="assets/img/logo/logo2_footer.png" alt="Logo Image" />
+      <div>
+        <p class="app-sidebar__user-name"><b>{{Infor.email}}</b></p>
+      </div>
+    </div>
+    <hr />
+    <ul class="app-menu">
+      <li><a class="app-menu__item" href="" ng-click="admin.showDashboard()"><span class="app-menu__label">Dashboard</span></a> </li>
+      <li><a class="app-menu__item" href="" ng-click="admin.showAccount()"><span class="app-menu__label">Account Management</span></a></li>
+      <li><a class="app-menu__item" href="" ng-click="admin.showJob()"><span class="app-menu__label">Job Management</span></a></li>
+      <li><a class="app-menu__item" href="" ng-click="admin.showPost()"><span class="app-menu__label">Post Management</span></a></li>
+      <li><a class="app-menu__item" href="" ng-click="admin.showJobTimeout()"><span class="app-menu__label">Job Timeout</span></a></li>
+      <li><a class="app-menu__item" href="" ng-click="admin.showTypeIndustry()"><span class="app-menu__label">Type and Industry</span></a></li>
+      <li><a class="app-menu__item" href="" ng-click="logout()"><span class="app-menu__label">Exit</span></a></li>
+    </ul>
+  </aside>
+  <dash-board ng-if="admin.dashboard"></dash-board>
+  <account-management ng-if="admin.account"></account-management>
+  <job-management ng-if="admin.job"></job-management>
+  <post-management ng-if="admin.post"></post-management>
+  <type-industry ng-if="admin.type_industry"></type-industry>
+  <job-timeout ng-if="admin.jobTimeout"></job-timeout>
+</body>
+
+</html>
+

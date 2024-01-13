@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="SqlServer" id="Project-e09" database="SqlServer" >
+	<schema name="dbo" catalogname="tuankhadev_findjob" >
+		<table name="Account" row_count="0" >
+			<column name="account_id" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="email" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="password" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="date_create" type="datetime2" decimal="7" jt="92" mandatory="y" />
+			<index name="PK_Account" unique="PRIMARY_KEY" >
+				<column name="account_id" />
+			</index>
+		</table>
+		<table name="Admin" row_count="1" >
+			<column name="admin_id" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="username" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="password" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<index name="PK_Admin" unique="PRIMARY_KEY" >
+				<column name="admin_id" />
+			</index>
+		</table>
+		<table name="Employer" row_count="0" >
+			<column name="account_id" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="employer_name" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="employer_about" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="employer_address" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="contact_phone" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="employer_image" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="employer_website" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<index name="PK_Employer" unique="PRIMARY_KEY" >
+				<column name="account_id" />
+			</index>
+			<fk name="FK_Employer_Account_account_id" to_schema="tuankhadev_findjob.dbo" to_table="Account" delete_action="cascade" >
+				<fk_column name="account_id" pk="account_id" />
+			</fk>
+		</table>
+		<table name="Industry" row_count="0" >
+			<column name="industry_id" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="industry_name" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<index name="PK_Industry" unique="PRIMARY_KEY" >
+				<column name="industry_id" />
+			</index>
+		</table>
+		<table name="Job" row_count="0" >
+			<column name="job_id" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="account_id" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="type_id" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="posted_date" type="datetime2" decimal="7" jt="92" mandatory="y" />
+			<column name="deadline" type="datetime2" decimal="7" jt="92" mandatory="y" />
+			<index name="PK_Job" unique="PRIMARY_KEY" >
+				<column name="job_id" />
+			</index>
+			<index name="IX_Job_type_id" unique="NORMAL" >
+				<column name="type_id" />
+			</index>
+			<index name="IX_Job_account_id" unique="NORMAL" >
+				<column name="account_id" />
+			</index>
+			<fk name="FK_Job_Type_type_id" to_schema="tuankhadev_findjob.dbo" to_table="Type" delete_action="cascade" >
+				<fk_column name="type_id" pk="type_id" />
+			</fk>
+			<fk name="FK_Job_Employer_account_id" to_schema="tuankhadev_findjob.dbo" to_table="Employer" delete_action="cascade" >
+				<fk_column name="account_id" pk="account_id" />
+			</fk>
+		</table>
+		<table name="Job_Detail" row_count="0" >
+			<column name="Id" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="job_id" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="job_title" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="job_description" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="location" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="requirement" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="minimum_salary" type="real" length="24" decimal="0" jt="7" mandatory="y" />
+			<column name="maximum_salary" type="real" length="24" decimal="0" jt="7" mandatory="y" />
+			<column name="status" type="bit" length="1" decimal="0" jt="-7" mandatory="y" />
+			<column name="industry_id" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<index name="PK_Job_Detail" unique="PRIMARY_KEY" >
+				<column name="Id" />
+			</index>
+			<index name="IX_Job_Detail_industry_id" unique="NORMAL" >
+				<column name="industry_id" />
+			</index>
+			<index name="IX_Job_Detail_job_id" unique="NORMAL" >
+				<column name="job_id" />
+			</index>
+			<fk name="FK_Job_Detail_Industry_industry_id" to_schema="tuankhadev_findjob.dbo" to_table="Industry" delete_action="cascade" >
+				<fk_column name="industry_id" pk="industry_id" />
+			</fk>
+			<fk name="FK_Job_Detail_Job_job_id" to_schema="tuankhadev_findjob.dbo" to_table="Job" delete_action="cascade" >
+				<fk_column name="job_id" pk="job_id" />
+			</fk>
+		</table>
+		<table name="Job_Industry" row_count="0" >
+			<column name="id" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="industry_id" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="job" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<index name="PK_Job_Industry" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="IX_Job_Industry_industry_id" unique="NORMAL" >
+				<column name="industry_id" />
+			</index>
+			<fk name="FK_Job_Industry_Industry_industry_id" to_schema="tuankhadev_findjob.dbo" to_table="Industry" delete_action="cascade" >
+				<fk_column name="industry_id" pk="industry_id" />
+			</fk>
+		</table>
+		<table name="Recruitment" row_count="0" >
+			<column name="Id" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="account_id" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="job_id" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="seeker_desire" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="registation_date" type="datetime2" decimal="7" jt="92" mandatory="y" />
+			<index name="PK_Recruitment" unique="PRIMARY_KEY" >
+				<column name="Id" />
+			</index>
+			<index name="IX_Recruitment_job_id" unique="NORMAL" >
+				<column name="job_id" />
+			</index>
+			<index name="IX_Recruitment_account_id" unique="NORMAL" >
+				<column name="account_id" />
+			</index>
+			<fk name="FK_Recruitment_Job_job_id" to_schema="tuankhadev_findjob.dbo" to_table="Job" delete_action="cascade" >
+				<fk_column name="job_id" pk="job_id" />
+			</fk>
+			<fk name="FK_Recruitment_Seeker_account_id" to_schema="tuankhadev_findjob.dbo" to_table="Seeker" delete_action="cascade" >
+				<fk_column name="account_id" pk="account_id" />
+			</fk>
+		</table>
+		<table name="Seeker" row_count="0" >
+			<column name="account_id" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="first_name" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="last_name" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="address" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="birthday" type="datetime2" decimal="7" jt="92" mandatory="y" />
+			<column name="phone_number" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="seeker_image" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="academic_level" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="skills" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="url_cv" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<column name="website_seeker" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<index name="PK_Seeker" unique="PRIMARY_KEY" >
+				<column name="account_id" />
+			</index>
+			<fk name="FK_Seeker_Account_account_id" to_schema="tuankhadev_findjob.dbo" to_table="Account" >
+				<fk_column name="account_id" pk="account_id" />
+			</fk>
+		</table>
+		<table name="Type" row_count="0" >
+			<column name="type_id" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="type_name" type="nvarchar(max)" length="0" decimal="0" jt="12" />
+			<index name="PK_Type" unique="PRIMARY_KEY" >
+				<column name="type_id" />
+			</index>
+		</table>
+		<table name="__EFMigrationsHistory" row_count="1" >
+			<column name="MigrationId" type="nvarchar" length="150" decimal="0" jt="12" mandatory="y" />
+			<column name="ProductVersion" type="nvarchar" length="32" decimal="0" jt="12" mandatory="y" />
+			<index name="PK___EFMigrationsHistory" unique="PRIMARY_KEY" >
+				<column name="MigrationId" />
+			</index>
+		</table>
+	</schema>
+	<connector name="SqlServer" database="SqlServer" driver_class="com.microsoft.sqlserver.jdbc.SQLServerDriver" driver_jar="mssql-jdbc-12.2.0.jre11.jar" driver_desc="SQL Server Authentication" host="sql.bsite.net\MSSQL2016" port="1433" instance="tuankhadev_findjob" user="tuankhadev_findjob" passwd="VDdVdTk5d1hLWktudkBq" useSystemProxy="false" />
+	<layout name="Main" id="Layout-19b2" show_relation="columns" >
+		<entity schema="tuankhadev_findjob.dbo" name="Account" color="3986C1" x="688" y="272" />
+		<entity schema="tuankhadev_findjob.dbo" name="Admin" color="3986C1" x="48" y="496" />
+		<entity schema="tuankhadev_findjob.dbo" name="Employer" color="3986C1" x="688" y="496" />
+		<entity schema="tuankhadev_findjob.dbo" name="Industry" color="3986C1" x="464" y="496" />
+		<entity schema="tuankhadev_findjob.dbo" name="Job" color="3986C1" x="480" y="272" />
+		<entity schema="tuankhadev_findjob.dbo" name="Job_Detail" color="3986C1" x="240" y="192" />
+		<entity schema="tuankhadev_findjob.dbo" name="Job_Industry" color="3986C1" x="464" y="672" />
+		<entity schema="tuankhadev_findjob.dbo" name="Recruitment" color="3986C1" x="480" y="48" />
+		<entity schema="tuankhadev_findjob.dbo" name="Seeker" color="3986C1" x="896" y="160" />
+		<entity schema="tuankhadev_findjob.dbo" name="Type" color="3986C1" x="256" y="672" />
+	</layout>
+</project>

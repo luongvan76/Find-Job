@@ -1,0 +1,59 @@
+<section>
+    <!-- Featured_job_start -->
+    <div class="featured-job-area ">
+        <div class="container">
+            <!-- Section Tittle -->
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="section-tittle text-center">
+                        <h2>Approved Posts</h2>
+                    </div>
+                </div>
+                <div class="col-lg-8 bg-success mb-50 custom_nothing" ng-if="approvedJobs.length === 0">
+                    Sorry, you can create a new job...! 
+                    <a href="#!post">Post a job</a>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-xl-12" ng-repeat="job in approvedJobs">
+                    <!-- single-job-content -->
+                    <div class="single-job-items mb-30">
+                        <div class="job-items">
+                            <div class="company-img">
+                                <a href="#!job_detail/{{job.id}}"><img ng-src="{{job.logo}}" alt=""></a>
+                            </div>
+                            <div class="job-tittle">
+                                <a href="#!job_detail/{{job.id}}">
+                                    <h4>{{job.jobTitle}}</h4>
+                                </a>
+                                <ul>
+                                    <li>{{job.industry}}</li>
+                                    <li><i class="fas fa-map-marker-alt"></i>{{job.location}}</li>
+                                    <li>{{job.minimum_salary}} VNĐ - {{job.maximum_salary}} VNĐ</li>
+                                    <li>
+                                        <span
+                                            ng-class="{'badge bg-success': job.status === 'Approved', 'badge bg-info': job.status === 'Waiting'}">
+                                            {{job.status}}
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="items-link f-right job-link mr-30">
+                                <a href="#!job_detail/{{job.id}}">{{job.type}}</a>
+                                <span>{{job.deadline}}</span>
+                                <a href="#!apply_list/{{job.id}}" class="badge bg-list">Apply List</a>
+                            </div>
+                            <span class="exit_job"><i class="fas fa-times" ng-click="delete(job.id)"></i></span>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Featured_job_end -->
+    <apply-list ng-if="employer.applyList"></apply-list>
+</section>

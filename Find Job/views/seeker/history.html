@@ -1,0 +1,97 @@
+<section>
+  <!-- Hero Area Start-->
+  <div class="slider-area">
+    <div class="single-slider section-overly slider-height2 d-flex align-items-center"
+      data-background="assets/img/hero/about.jpg" databg>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="hero-cap text-center">
+              <h2>Your Applied</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Hero Area End -->
+  <!-- Job List Area Start -->
+  <div class="job-listing-area pt-120 pb-120">
+    <div class="container">
+      <div class="row justify-content-center">
+        <!-- Right content -->
+        <div class="col-xl-12 col-lg-12 col-md-12">
+          <!-- Featured_job_start -->
+          <section class="featured-job-area">
+            <div class="container">
+              <!-- Count of Job list Start -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="count-job mb-35">
+                    <h2>Applied for job</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 bg-success mb-50 custom_nothing" ng-if="jobs.length == 0">
+                You haven't applied for any jobs yet...!
+                <a href="#!joblisting">Find a job now</a>
+            </div>   
+              <!-- Count of Job list End -->
+              <!-- single-job-content -->
+              <div class="single-job-items mb-30" ng-repeat="job in jobs" ng-click="history.showInforJob(); jobDetail(job.id)">
+                <div class="job-items" >
+                  <div class="company-img">
+                    <img ng-src="{{job.logo}}" alt="">
+                  </div>
+                  <div class="job-tittle">
+                    <h4>{{job.job_title}}</h4>
+                    <ul>
+                      <li>{{job.industry}}</li>
+                      <li><i class="fas fa-map-marker-alt"></i>{{job.location}}</li>
+                      <li>{{job.minimum_salary | currencyFormat}} VNĐ - {{job.maximum_salary | currencyFormat}} VNĐ</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="items-link job-link exit_job">
+                    <a href="">View</a>
+                  </div>
+                  <span class="exit_job pr-30"><i class="fas fa-times" ng-click="delete(job.id)"></i></span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Featured_job_end -->
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--Pagination Start  -->
+    <div class="pagination-area pb-115 text-center" ng-if = "totalJob > 5">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="single-wrap d-flex justify-content-center">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-start">
+                  <li class="page-item">
+                    <a class="page-link" href="" ng-click="previousPage()" ng-if="showPreviousButton"><span class="ti-angle-left"></span></a>
+                  </li>
+                  <li ng-class="{ 'page-item active': page === currentPage }" ng-repeat="page in pageNumbers | limitTo: 3">
+                    <a class="page-link" href="" ng-model = "page" ng-click="changePage(page)">{{page}}</a>
+                  </li>
+                  <li class="page-item" ng-if="pageNumbers.length > 3">
+                    <a class="page-link" href="" ng-click="nextPage()"><span class="ti-angle-right"></span></a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Pagination End  -->
+  
+  <!-- Job List Area End -->
+  <infor-job ng-if="history.job"></infor-job>
+</section>

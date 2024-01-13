@@ -1,0 +1,270 @@
+<section ng-app="MyApp" ng-controller="HomeController">
+  <!-- slider Area Start-->
+  <div class="slider-area">
+    <!-- Mobile Menu -->
+    <div class="slider-active ">
+      <div class="single-slider slider-height d-flex align-items-center "
+        data-background="../assets/img/hero/h1hero.jpg" databg>
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-6 col-lg-9 col-md-10">
+              <div class="hero__caption">
+                <h1>Find the most exciting startup jobs</h1>
+              </div>
+            </div>
+          </div>
+          <!-- Search Box -->
+          <div class="row">
+            <div class="col-xl-8">
+              <!-- form -->
+              <form action="" class="search-box d-flex">
+                <div class="search-form">
+                  <a href="#!joblisting">Find job</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- slider Area End-->
+  <!-- Featured_job_start -->
+  <section class="featured-job-area pt-150">
+    <div class="container">
+      <!-- Section Tittle -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-tittle text-center">
+            <h2>Featured Jobs</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-xl-12">
+          <!-- single-job-content -->
+          <div class="single-job-items mb-30" ng-repeat="job in jobs | filter:job.jobTittle">
+            <div class="job-items">
+              <div class="company-img">
+                <a href="#!job_details/{{job.id}}"><img ng-src="{{job.logo}}" alt="" class="logo_company" /></a>
+              </div>
+              <div class="job-tittle">
+                <a href="#!job_details/{{job.id}}">
+                  <h4>{{job.jobTitle}}</h4>
+                </a>
+                <ul>
+                  <li>
+                    <i class="fas fa-map-marker-alt"></i>{{job.location}}
+                  </li>
+                  <li>{{job.minimum_salary | currencyFormat}} VNĐ - {{job.maximum_salary | currencyFormat}} VNĐ</li>
+                </ul>
+              </div>
+            </div>
+            <div class="items-link f-right">
+              <a href="#!job_details/{{job.id}}">{{job.type}}</a>
+              <span>{{job.deadline}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- Our Services Start -->
+  <div class="our-services section-pad-t30">
+    <div class="container">
+      <!-- Section Tittle -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-tittle text-center">
+            <h2>Browse Top Industries</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex justify-contnet-center">
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-tour"></span>
+            </div>
+            <div class="services-cap">
+              <h5><a>Design & Creative</a></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-cms"></span>
+            </div>
+            <div class="services-cap">
+              <h5><a>Design & Development</a></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-report"></span>
+            </div>
+            <div class="services-cap">
+              <h5><a>Sales & Marketing</a></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-app"></span>
+            </div>
+            <div class="services-cap">
+              <h5><a>Mobile Application</a></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-helmet"></span>
+            </div>
+            <div class="services-cap">
+              <h5><a>Construction</a></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-high-tech"></span>
+            </div>
+            <div class="services-cap">
+              <h5><a>Information Technology</a></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-real-estate"></span>
+            </div>
+            <div class="services-cap">
+              <h5><a>Real Estate</a></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-content"></span>
+            </div>
+            <div class="services-cap">
+              <h5><a>Content Writer</a></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- More Btn -->
+      <!-- Section Button -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="browse-btn2 text-center mt-50">
+            <a href="#!joblisting" class="border-btn2">Browse All Sectors</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Our Services End -->
+  <!-- How  Apply Process Start-->
+  <div class="apply-process-area apply-bg pt-150 pb-150" data-background="assets/img/gallery/how-applybg.png" databg>
+    <div class="container">
+      <!-- Section Tittle -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-tittle white-text text-center">
+            <h2>How it works</h2>
+          </div>
+        </div>
+      </div>
+      <!-- Apply Process Caption -->
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="single-process text-center mb-30">
+            <div class="process-ion">
+              <span class="flaticon-search"></span>
+            </div>
+            <div class="process-cap">
+              <h5>1. Search a job</h5>
+              <p>
+                Find a job that's right for you with full search support. Helps you easily access jobs that suit you
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="single-process text-center mb-30">
+            <div class="process-ion">
+              <span class="flaticon-curriculum-vitae"></span>
+            </div>
+            <div class="process-cap">
+              <h5>2. Apply for job</h5>
+              <p>
+                Register for a job quickly based on the information you have provided. Your job is to wait for the
+                employer to respond
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="single-process text-center mb-30">
+            <div class="process-ion">
+              <span class="flaticon-tour"></span>
+            </div>
+            <div class="process-cap">
+              <h5>3. Get your job</h5>
+              <p>
+                The employer will send a registration email and notification to you. Your job is to prepare your CV
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured_job_end -->
+  <div class="support-company-area support-padding fix">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-xl-6 col-lg-6">
+          <div class="right-caption">
+            <!-- Section Tittle -->
+            <div class="section-tittle section-tittle2">
+              <span>What we are doing</span>
+              <h2>50k Talented people are getting Jobs</h2>
+            </div>
+            <div class="support-caption">
+              <p class="pera-top">
+                There are many job seekers who have used it and got their desired job. This is an opportunity for
+                employers to recruit more talented employees to work for them.
+              </p>
+              <p>
+                Your job is to register for recruitment with complete information. The system will check and post job
+                advertisements quickly and reach many job seekers
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6">
+          <div class="support-location-img">
+            <img src="assets/img/service/support-img.jpg" alt="" />
+            <div class="support-img-cap text-center">
+              <p>Since</p>
+              <span>2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Support Company End-->
+</section>

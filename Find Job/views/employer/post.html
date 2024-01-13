@@ -1,0 +1,47 @@
+<section>
+	<div class="row apply-bg justify-content-center mx-auto" data-background="assets/img/gallery/how-applybg.png" databg>
+		<div class="col-xl-6 col-lg-6 col-md-6 single-process mb-30 mt-30">
+			<div class="row  edit_job_input">
+				<div class="col-xl-4 col-lg-4 col-md-4 edit_header text-header">Job Tittle: </div>
+				<input type="text"  class="col-xl-8 col-lg-8 col-md-8 post-input" ng-model="tittle">
+			</div>
+			<div class="row  edit_job_input">
+				<div class="col-xl-4 col-lg-4 col-md-4 edit_header text-header">Location: </div>
+				<select name="" class="col-xl-8 col-lg-8 col-md-8 post-input"  ng-model="location.name" ng-options="location.name for location in locations"></select>
+			</div>
+			<div class="row  edit_job_input">
+				<div class="col-xl-4 col-lg-4 col-md-4  edit_header text-header">Minimum salary: </div>
+				<input type="number" value="" class="col-xl-2 col-lg-2 col-md-2 post-input" ng-model="minsalary">
+				<div class="col-xl-4 col-lg-4 col-md-4 edit_header text-header">Maximum salary: </div>
+				<input type="number" value="Nguyễn Chí Nhiên" class="col-xl-2 col-lg-2 col-md-2 post-input" ng-model="maxsalary">
+			</div>
+			<div class="row  edit_job_input justify-content-center">
+				<div class="col-xl-4 col-lg-4 col-md-4 edit_header text-header">Description: </div>
+				<textarea class="col-xl-4 col-lg-4 col-md-4 post-input" id="descriptionEditor" ckeditor></textarea>
+			</div>
+		</div>
+		<div class="col-xl-6 col-lg-6 col-md-6 single-process mb-30 mt-30">
+			<div class="row  edit_job_input">
+				<div class="col-xl-4 col-lg-4 col-md-4 edit_header text-header">Type of job: </div>
+				<select name="" class="col-xl-8 col-lg-8 col-md-8 post-input"  ng-model="type.type_id" ng-options="type.type_name for type in types"></select>
+			</div>
+			<div class="row  edit_job_input">
+				<div class="col-xl-4 col-lg-4 col-md-4 edit_header text-header">Industry: </div>
+				<select name="" class="col-xl-8 col-lg-8 col-md-8 post-input"  ng-model="industry.industry_id" ng-options="industry.industry for industry in industries"></select>
+			</div>
+			<div class="row  edit_job_input">
+				<div class="col-xl-4 col-lg-4 col-md-4 edit_header text-header">Deadline: </div>
+				<input type="date" value="" class="col-xl-8 col-lg-8 col-md-8 post-input" ng-model="deadline">
+			</div>
+			<div class="row edit_job_input justify-content-center">
+				<div class="col-xl-4 col-lg-4 col-md-4 edit_header text-header">Requirement: </div>
+				<textarea class="col-xl-8 col-lg-8 col-md-8 post-input" id="requirementEditor" ckeditor></textarea>
+			</div>
+		</div>
+		<div class="row justify-content-center mb-50">
+			<div class="header-btn edit_job_button">
+				<a href="" class="btn custom_btn" ng-click="Post(tittle, location.name, minsalary, maxsalary, type.type_id, industry.industry_id, deadline)">Post Job</a>
+			</div>
+		</div>
+	</div>
+</section>

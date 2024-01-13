@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "ckeditor": "^4.12.1",
+    "ng-ckeditor": "^2.0.5",
+    "toastr": "^2.1.4"
+  }
+}
